@@ -1,0 +1,26 @@
+<h4>Default: Not in NgZone</h4>
+<swiper [virtual]="true">
+  <ng-template
+    *ngFor="let item of [].constructor(10); let i = index"
+    swiperSlide
+  >
+    <img
+      [routerLink]="['details', { id: i }]"
+      src="https://picsum.photos/id/{{ i }}/200"
+    />
+  </ng-template>
+</swiper>
+
+<h4>Run in NgZone Manually</h4>
+<swiper [virtual]="true">
+    <ng-template
+      *ngFor="let item of [].constructor(10); let i = index"
+      swiperSlide
+    >
+      <img
+        (click)="navigateDetails(i)"
+        src="https://picsum.photos/id/{{ i }}/200"
+      />
+    </ng-template>
+  </swiper>
+  
